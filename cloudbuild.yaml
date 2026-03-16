@@ -1,0 +1,83 @@
+# Define substitutions
+substitutions:
+  _DEPLOYMENT_NAME: 'sahil-portfolio'
+  _IMAGE: 'us-central1-docker.pkg.dev/pr-stage/run-repo/sahil-portfolio:v1.0'
+  _REGION: 'us-central1'
+
+# Specify the logs bucket to store the build log
+#logsBucket: gs://cloud-build-logs-00
+options:
+  logging: 'CLOUD_LOGGING_ONLY'
+
+steps:
+# Step 1: Debug Step - List files in the current build context
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: List Files
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "Listing files in the current build context:"
+        ls -la
+        echo "Deployment Name: ${_DEPLOYMENT_NAME}"
+        echo "Image Name: ${_IMAGE}"
+
+# Step 2: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Build Image
+    args: ['build', '-t', '${_IMAGE}', '.']
+
+# Step 3: Push the Docker image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Push Image
+    args: ['push', '${_IMAGE}']
+
+# Step 4: Deploy the application to Cloud Run
+#  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk' #official bigger with extra gcloud components builder -----use "+args: - 'gcloud'" 
+  - name: 'gcr.io/cloud-builders/gcloud' # official lightweight builder 
+    id: Deploy to Cloud Run
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_DEPLOYMENT_NAME}'
+      - '--image'
+      - '${_IMAGE}'
+      - '--region'
+      - '${_REGION}'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'  # Allow public access without authentication
+      - '--port=80'  # Ensure Cloud Run listens on the correct port
+#      - '--cpu=2'  # Allocate 2 vCPUs for Cloud Run instance
+#      - '--memory=4Gi'  # Allocate 2GB RAM
+      - '--max-instances=10'  # Scale up to 10 instances as needed
+ #      - '--ingress=internal' # Ensures pvt access
+ #      - '--ingress=internal-and-cloud-load-balancing'  # Allow traffic from external LBs
+ #      # Uncomment below if using a VPC Connector
+ #      - '--vpc-connector'
+ #      - 'cloud-run-connector-new'
+    timeout: 600s # Increased timeout to 10 minutes
+    
+# Step 5: Add IAM policy binding to allow public access
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'beta'
+      - 'run'
+      - 'services'
+      - 'add-iam-policy-binding'
+      - '${_DEPLOYMENT_NAME}'
+      - '--region'
+      - '${_REGION}'
+      - '--member'
+      - 'allUsers'
+      - '--role'
+      - 'roles/run.invoker'
+
+# Specify images to build
+images:
+  - '${_IMAGE}'
+
+# Specify the private worker pool configuration
+#options:
+#  pool:
+#    name: 'projects/stage-443707/locations/asia-south1/workerPools/cloud-build-private-pool'
