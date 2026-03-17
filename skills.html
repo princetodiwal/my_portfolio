@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Sahil Singh</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="/">Sahil Singh</a>
+        </div>
+        <nav class="nav-right">
+            <a href="/">Home</a>
+            <a href="/skills" class="active">Skills</a>
+            <a href="/projects">Projects</a>
+            <a href="/certificates">Certificates</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <i class="fab fa-google"></i>
+                <p>Google Cloud Platform (GCP)</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-aws"></i>
+                <p>Amazon Web Services (AWS)</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-microsoft"></i>
+                <p>Microsoft Azure</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-docker"></i>
+                <p>Docker</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-cubes"></i>
+                <p>Kubernetes</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-code-branch"></i>
+                <p>CI/CD Pipelines</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-linux"></i>
+                <p>Linux Administration</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-network-wired"></i>
+                <p>Networking & Security</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-terminal"></i>
+                <p>Shell Scripting</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-terminal"></i>
+                <p>Python</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-cloud"></i>
+                <p>DevOps Automation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vanta.js Animated Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script>
+      VANTA.NET({
+        el: "body",
+        color: 0x24405c,
+        backgroundColor: 0x16181d,
+        points: 12.0,
+        maxDistance: 22.0,
+        spacing: 18.0
+      });
+    </script>
+
+    <!-- ScrollReveal Animations -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      ScrollReveal({
+        reset: false,
+        distance: '60px',
+        duration: 1200,
+        delay: 150
+      });
+
+      ScrollReveal().reveal('.skills-section h2', { origin: 'top' });
+      ScrollReveal().reveal('.skill-box', { origin: 'bottom', interval: 100 });
+    </script>
+
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Projects | Sahil Singh{% endblock %}
+
+{% block content %}
+<section class="projects-section">
+    ...
+</section>
+{% endblock %}
+
+
+</body>
+</html>

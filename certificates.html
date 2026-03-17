@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - Sahil Singh</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="nav-left">
+        <a href="/">Sahil Singh</a>
+    </div>
+    <nav class="nav-right">
+        <a href="/">Home</a>
+        <a href="/skills">Skills</a>
+        <a href="/projects">Projects</a>
+        <a href="/certificates" class="active">Certificates</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<!-- Certificates Section -->
+<section class="certificates-section">
+    <h2>My Certifications</h2>
+
+    <div class="certificates-grid">
+
+        <!-- Certificate Card -->
+        <div class="certificate-card">
+            <img src="{{ url_for('static', filename='certificates/GCP/gcp_ace.png') }}" alt="GCP ACE">
+            <h3>Google Associate Cloud Engineer</h3>
+            <p>Issued by Google Cloud</p>
+            <a class="project-btn" href="{{ url_for('static', filename='certificates/GCP/gcp_ace1.jpg') }}" target="_blank">
+                View Certificate
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <img src="{{ url_for('static', filename='certificates/AZ/azure_ace.png') }}" alt="Azure Fundamentals">
+            <h3>Azure Administrator Associate</h3>
+            <p>Issued by Microsoft</p>
+            <a class="project-btn" href="{{ url_for('static', filename='certificates/AZ/AZ-104.pdf') }}" target="_blank">
+                View Certificate
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <img src="{{ url_for('static', filename='certificates/AZ/azure_ace.png') }}" alt="Azure Fundamentals">
+            <h3>Azure Network Engineer Associate</h3>
+            <p>Issued by Microsoft</p>
+            <a class="project-btn" href="{{ url_for('static', filename='certificates/AZ/AZ-700.pdf') }}" target="_blank">
+                View Certificate
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <img src="{{ url_for('static', filename='certificates/OCI/oci_ace.jpg') }}" alt="OCI ACP">
+            <h3>OCI Generative AI Certified Professional</h3>
+            <p>Issued by Oracle</p>
+            <a class="project-btn" href="{{ url_for('static', filename='certificates/OCI/oci_ace-pro.pdf') }}" target="_blank">
+                View Certificate
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <img src="{{ url_for('static', filename='certificates/OCI/oci-ace-fun.png') }}" alt="OCI CFA">
+            <h3>OCI Certified Foundations Associate</h3>
+            <p>Issued by Oracle</p>
+            <a class="project-btn" href="{{ url_for('static', filename='certificates/OCI/oci-ace-fun.pdf') }}" target="_blank">
+                View Certificate
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Vanta Background -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+<script>
+  VANTA.NET({
+    el: "body",
+    color: 0x24405c,
+    backgroundColor: 0x16181d,
+    points: 12.0,
+    maxDistance: 22.0,
+    spacing: 18.0
+  });
+</script>
+
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Projects | Sahil Singh{% endblock %}
+
+{% block content %}
+<section class="projects-section">
+    ...
+</section>
+{% endblock %}
+
+
+
+</body>
+</html>

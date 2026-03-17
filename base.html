@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sahil Singh{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- <header class="navbar">
+    <div class="nav-left">
+        <a href="/">Sahil Singh</a>
+    </div>
+    <nav class="nav-right">
+        <a href="/">Home</a>
+        <a href="/skills">Skills</a>
+        <a href="/projects">Projects</a>
+        <a href="/certificates">Certificates</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header> -->
+
+<!-- PAGE CONTENT
+{% block content %}{% endblock %} -->
+
+<!-- GLOBAL FOOTER -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <h3>Let’s Connect</h3>
+        <p>Interested in DevOps, Cloud, or collaboration?</p>
+
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/sahil-singh-032b22237" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Sahil-502" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:sahilhr24@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Sahil Singh · DevOps & Cloud Engineer
+        </div>
+    </div>
+</footer>
+
+<!-- VANTA -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+<script>
+VANTA.NET({
+    el: "body",
+    color: 0x24405c,
+    backgroundColor: 0x16181d,
+    points: 12,
+    maxDistance: 22,
+    spacing: 18
+});
+</script>
+
+<!-- SCROLLREVEAL -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+{% block scripts %}{% endblock %}
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Init ScrollReveal only once
+    ScrollReveal({
+        reset: false,
+        distance: '60px',
+        duration: 1200,
+        delay: 150
+    });
+
+    /* GLOBAL FOOTER ANIMATION */
+    ScrollReveal().reveal('.site-footer h3', {
+        origin: 'top',
+        delay: 200
+    });
+
+    ScrollReveal().reveal('.site-footer p', {
+        origin: 'bottom',
+        delay: 300
+    });
+
+    ScrollReveal().reveal('.footer-links a', {
+        origin: 'bottom',
+        interval: 120,
+        delay: 400
+    });
+
+    ScrollReveal().reveal('.footer-bottom', {
+        origin: 'bottom',
+        delay: 500
+    });
+
+});
+</script>
+
+
+
+</body>
+</html>
