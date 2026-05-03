@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahil Singh</title>
+    <title>Prince Todiwal</title>
 
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <header class="navbar">
     <div class="nav-left">
-        <a href="index.html">Sahil Singh</a>
+        <a href="/">Prince Todiwal</a>
     </div>
     <nav class="nav-right">
-        <a href="index.html">Home</a>
-        <a href="skills/">Skills</a>
-        <a href="projects/">Projects</a>
-        <a href="certificates/">Certificates</a>
-        <a href="contact/">Contact</a>
+        <a href="/">Home</a>
+        <a href="/skills">Skills</a>
+        <a href="/projects">Projects</a>
+        <a href="/certificates">Certificates</a>
+        <a href="/contact">Contact</a>
     </nav>
 </header>
 
@@ -27,18 +27,18 @@
 <div class="hero">
     <div class="hero-content">
         <h1 class="greeting">Hello</h1>
-        <h2 class="headline">I'm Sahil Singh</h2>
+        <h2 class="headline">I'm Prince Todiwal</h2>
         <p class="about">
             I’m a passionate <b>DevOps & Cloud Engineer</b> specializing in deploying,
             automating, and optimizing cloud solutions.
         </p>
         <div class="hero-actions">
-            <a class="btn alt" href="https://github.com/Sahil-502" target="_blank">My Work</a>
-            <a class="btn alt" href="mailto:sahilhr24@gmail.com">Email Me</a>
+            <a class="btn alt" href="https://github.com/princetodiwal" target="_blank">My Work</a>
+            <a class="btn alt" href="mailto:todiwalprince@gmail.com">Email Me</a>
         </div>
     </div>
     <div class="hero-photo">
-        <img src="static/profile.jpg" alt="Profile Photo">
+        <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Photo">
     </div>
 </div>
 
@@ -47,7 +47,7 @@
     <h2>About Me</h2>
     <div class="about-greeting">👋 Hi there,</div>
     <p class="about-lead">
-        I'm Sahil, a DevOps & Cloud Engineer focused on scalable infrastructure and automation.
+        I'm Prince, a DevOps & Cloud Engineer focused on scalable infrastructure and automation.
     </p>
     <p>
         Hands-on experience with GCP, AWS, Azure, Docker, Kubernetes, CI/CD and Linux.
@@ -82,7 +82,7 @@
     </div>
 
     <div class="home-cta">
-        <a href="skills/" class="btn primary">View All Skills →</a>
+        <a href="/skills" class="btn primary">View All Skills →</a>
     </div>
 </section>
 
@@ -97,24 +97,24 @@
         <div class="home-card">
             <h3>GCP VM Resize Automation</h3>
             <p>Scheduled VM resizing to reduce cost.</p>
-            <a href="projects/" class="home-link">Read more →</a>
+            <a href="/projects" class="home-link">Read more →</a>
         </div>
 
         <div class="home-card">
             <h3>GCP Resource Cleanup</h3>
             <p>Automated cleanup of unused resources.</p>
-            <a href="projects/" class="home-link">Read more →</a>
+            <a href="/projects" class="home-link">Read more →</a>
         </div>
 
         <div class="home-card">
             <h3>Kubernetes CI/CD</h3>
             <p>Secure CI/CD with Cloud Build & GitHub.</p>
-            <a href="projects/" class="home-link">Read more →</a>
+            <a href="/projects" class="home-link">Read more →</a>
         </div>
     </div>
 
     <div class="home-cta">
-        <a href="projects/" class="btn primary">View All Projects →</a>
+        <a href="/projects" class="btn primary">View All Projects →</a>
     </div>
 </section>
 
@@ -122,22 +122,22 @@
 <footer class="site-footer">
     <div class="footer-content">
         <h3>Let’s Connect</h3>
-        <p>Interested in DevOps, Cloud, or collaboration?</p>
+        <p>Interested in Linux, DevOps, Cloud, or collaboration?</p>
 
         <div class="footer-links">
-            <a href="https://www.linkedin.com/in/sahil-singh-032b22237" target="_blank">
+            <a href="" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://github.com/Sahil-502" target="_blank">
+            <a href="https://github.com/princetodiwal" target="_blank">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="mailto:sahilhr24@gmail.com">
+            <a href="mailto:todiwalprince@gmail.com">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
 
         <div class="footer-bottom">
-            © 2026 Sahil Singh · DevOps & Cloud Engineer
+            © 2026 Prince Todiwal · System Engineer · DevOps & Cloud Enthusiast
         </div>
     </div>
 </footer>
@@ -203,3 +203,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
